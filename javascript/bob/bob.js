@@ -10,11 +10,14 @@ function isUpperCase(str) {
 };
 
 Bob.prototype.hey = function(input) {
-  if (isUpperCase(input) && (input.substr(-1)==="!" ||input.substr(-1)==="?" ) && input.match(/[a-z]/i)){
+  if (isUpperCase(input) && (input.substr(-1)==="!" ||input.substr(-1)==="?" || isNaN(input.substr(-1))) && input.match(/[a-z]/i)){
     return('Whoa, chill out!')
   }
   else if (input.substr(-1)==="?") {
     return("Sure.")
+  }
+  else if (!(/\S/.test(input))) {
+    return('Fine. Be that way!')
   }
   else{return("Whatever.")}
 };
