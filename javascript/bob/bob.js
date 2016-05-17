@@ -5,7 +5,19 @@
 
 var Bob = function() {};
 
+function isUpperCase(str) {
+    return str === str.toUpperCase();
+};
+
 Bob.prototype.hey = function(input) {
-  return("Whatever.")
-}
+  if (isUpperCase(input) && (input.substr(-1)==="!" ||input.substr(-1)==="?" ) && input.match(/[a-z]/i)){
+    return('Whoa, chill out!')
+  }
+  else if (input.substr(-1)==="?") {
+    return("Sure.")
+  }
+  else{return("Whatever.")}
+};
+
+
 module.exports = Bob;
